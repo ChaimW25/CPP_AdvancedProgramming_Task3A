@@ -29,12 +29,19 @@ namespace zich {
         Matrix a(ar,1,1);
         return a;
     }
-    Matrix Matrix::operator += (Matrix const &obj) {
+    Matrix& Matrix::operator += (Matrix const &obj) {
+        vector<double> ar={1.0};
+        Matrix a(ar,1,1);
+        Matrix  b = a;
+        return *this;
+    }
+    Matrix Matrix::operator + () {
         vector<double> ar={1.0};
         Matrix a(ar,1,1);
         return a;
     }
-    //the '-' operators
+
+    //    //the '-' operators
     Matrix Matrix::operator - (Matrix const &obj) {
         vector<double> ar={1.0};
         Matrix a(ar,1,1);
@@ -45,10 +52,11 @@ namespace zich {
         Matrix a(ar,1,1);
         return a;
     }
-    Matrix Matrix::operator -= (Matrix const &obj) {
+    Matrix& Matrix::operator -= (Matrix const &obj) {
         vector<double> ar={1.0};
         Matrix a(ar,1,1);
-        return a;
+        Matrix & b = a;
+        return *this;
     }
     //the equals operators
     bool Matrix::operator == (Matrix const &obj) {
@@ -75,29 +83,32 @@ namespace zich {
 
     }
     //the increment/decrement functions
-    Matrix Matrix::operator ++ () {
+    Matrix& Matrix::operator ++ () {
         vector<double> ar={1.0};
         Matrix a(ar,1,1);
-        return a;
+        Matrix & b = a;
+        return *this;
     }
-    Matrix operator -- (Matrix m) {
-        vector<double> ar={1.0};
-        Matrix a(ar,1,1);
-        return a;
+    Matrix& Matrix::operator -- () {
+        vector<double> ar = {1.0};
+        Matrix a(ar, 1, 1);
+        Matrix &b = a;
+        return *this;
     }
     //multiplying with scalar
-    Matrix Matrix::operator * (int scalar) {
+    Matrix Matrix::operator * (double scalar) {
         vector<double> ar={1.0};
         Matrix a(ar,1,1);
         return a;
     }
-    Matrix Matrix::operator *= (double scalar) {
+    Matrix& Matrix::operator *= (double scalar) {
         vector<double> ar={1.0};
         Matrix a(ar,1,1);
-        return a;
+        Matrix & b = a;
+        return *this;
     }
     // matrix muliplying
-    Matrix operator * (Matrix const &obj) {
+    Matrix Matrix::operator * (Matrix const &obj) {
         vector<double> ar={1.0};
         Matrix a(ar,1,1);
         return a;
@@ -105,9 +116,16 @@ namespace zich {
 
     //operators for istream and ostream
     std::ostream& operator<< (std::ostream& output, const Matrix& c){
+        return output;
 }
     std::istream& operator>> (std::istream& input , Matrix& c){
+        return input;
 }
+    Matrix operator * (const double scalar, Matrix &m){
+        vector<double> ar={1.0};
+        Matrix a(ar,1,1);
+        return a;
+    }
 
 
 }

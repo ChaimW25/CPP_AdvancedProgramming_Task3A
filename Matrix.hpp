@@ -7,14 +7,13 @@ using namespace std;
 namespace zich {
 
     class Matrix {
-    private:
+    public:
         int row;
         int col;
         vector<double> vec;
 //        std::vector<std::vector<double>> matrix<row,std::vector<double>(col));
 
 
-    public:
 
 //        vector<vector<double>> a;
 //        (row,vector<double>(col));
@@ -28,11 +27,11 @@ namespace zich {
         // '+' operators
         Matrix operator + (Matrix const &obj) ;
         Matrix operator + () ;
-        Matrix operator += (Matrix const &obj) ;
+        Matrix& operator += (Matrix const &obj) ;
         //the '-' operators
         Matrix operator - (Matrix const &obj) ;
         Matrix operator - () ;
-        Matrix operator -= (Matrix const &obj) ;
+        Matrix& operator -= (Matrix const &obj) ;
         //the equals operators
         bool operator == (Matrix const &obj) ;
         bool operator > (Matrix const &obj) ;
@@ -41,11 +40,11 @@ namespace zich {
         bool operator <= (Matrix const &obj) ;
         bool operator < (Matrix const &obj) ;
         //the increment/decrement functions
-        Matrix operator ++ () ;
-        Matrix operator -- () ;
+        Matrix& operator ++ () ;
+        Matrix& operator -- () ;
         //multiplying with scalar
-        Matrix operator * (int scalar);
-        Matrix operator *= (double scalar);
+        Matrix operator * (double scalar);
+        Matrix& operator *= (double scalar);
 
         // matrix muliplying
         Matrix operator * (Matrix const &obj) ;
@@ -55,11 +54,8 @@ namespace zich {
         friend std::istream& operator>> (std::istream& input , Matrix& c);
 
         };
-
+    Matrix operator * (const double scalar, Matrix &m);
 
     };
 
-#ifndef TASKC_MATRIX_HPP
-#define TASKC_MATRIX_HPP
 
-#endif //TASKC_MATRIX_HPP

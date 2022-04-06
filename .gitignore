@@ -38,6 +38,3 @@ test
 
 # vscode config files
 **/.vscode
-
-# Project exclude paths
-/cmake-build-debug/

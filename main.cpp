@@ -9,7 +9,6 @@ using namespace std;
 
 using namespace zich;
 
-
 int main() {
 
     std::vector<double> identity = {1, 0, 0, 0, 1, 0, 0, 0, 1};
